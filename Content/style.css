@@ -1,0 +1,109 @@
+body {
+	font-family: 'Roboto', sans-serif;
+	background-color: #561f22;
+	padding-bottom: 10px;
+    padding: 20%;
+}
+h1{
+	font-family: 'AlexBrush', Verdana, Tahoma;
+	font-size: 6em;
+	color: #e9ce74;
+}
+h2{
+	font-family: 'AlexBrush', Verdana, Tahoma;
+	font-size: 3em;
+	color: #561f22;
+}
+h3{
+	font-size: 1.5em;
+}
+.main{
+	width: 60%;
+	height: 100%;
+}
+.header{
+	background-color: #ffdee5;
+	height: 60%;
+}
+.nav-link{
+	color: #561f22;
+}
+#content{
+	margin-bottom: -5px; 
+	margin-left: -7px;
+	margin-right: -7px;
+	position: relative;
+}
+.info{
+	color: #e9ce74;
+}
+.rsvp{
+	font-family: 'AlexBrush', Verdana, Tahoma;
+	color: #e9ce74;
+	font-size: 20px;
+	width: 50%;
+}
+.heartContainer {
+ 	width: 110px;
+ 	height: 110px;
+ 	margin-left: 30px;
+}
+.heartContainer p{
+	color: #e9ce74;
+	margin-left: 0px;
+	margin-top: -80px;
+	font-family: 'AlexBrush', Verdana, Tahoma;
+	font-size: 22px;
+}
+.verticalLine {
+	border-left: thin solid gray;
+	height: 70%;
+}
+.details{
+	background-color: #ffdee5;
+	width: 98.2%;
+	top:0;
+	bottom: 0;
+	position:absolute;
+	margin-left: .9%;
+	padding-top: 50px;
+	text-align: center;
+	margin-top: -3.5%;
+}
+@font-face {
+    font-family: "AlexBrush";
+    src: url(Fonts/AlexBrush-Regular.ttf) format("truetype");
+}
+@font-face {
+    font-family: "Roboto";
+    src: url(Fonts/Roboto-Regular.ttf) format("truetype");
+}
+.btn:focus, .btn:active 
+{
+  outline: none !important;
+  box-shadow: none !important;
+}
+.navbar {min-height:31px !important; max-height: 31px !important}
+.navbar-nav > li > a {padding-top:5px !important; padding-bottom:5px !important;}
+.navbar-nav > li.selected { font-style: bold; text-decoration: underline; }
+.navbar .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+	font-style: bold;
+	text-decoration: underline;
+	color:#561f22;
+}
+.navbar-nav {
+	width: 57%;
+	text-align: center;
+	> li {
+	  float: none;
+	  display: inline-block;
+	}
+}
+.selectedRsvp{
+	background-color: #D24D57;
+}
+.btn.btn-primary{
+	background-color: #561f22;
+	border: none;
+	cursor: pointer;
+}

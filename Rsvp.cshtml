@@ -1,0 +1,72 @@
+﻿@{
+    Layout = "~/_SiteLayout.cshtml";
+}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+<link rel="stylesheet" href="/Content/animatedButtons.css">
+<link rel="stylesheet" href="/Content/style.css">
+
+<div class="details">
+    <h2>R S V P</h2>
+
+    <div class="container text-center" style="margin-top: 2%">
+        <form id="submitRsvp">
+            <div class="form-row">
+                <div class="col">
+                    <input type="text" class="form-control" id="firstName" required="" placeholder="First name">
+                </div>
+                <div class="col">
+                    <input type="text" class="form-control" id="lastName" required="" placeholder="Last name">
+                </div>
+            </div>
+            <br>
+            <div class="form-row">
+                <div class="col">
+                    Number of plus ones (please limit as much as possible):&nbsp
+                    <input type="text" class="form-control" style="width:35px; display: inline" id="extras" placeholder="0">
+                </div>
+            </div>
+            <br>
+            <div class="form-row">
+                <div class="col">
+                    *Need to change your RSVP details? Feel free to resubmit this form at any time!
+                </div>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary" id="confirmRsvp">I'll be there!</button>&nbsp&nbsp&nbsp
+            <button type="submit" class="btn btn-primary" id="declineRsvp">I can't come :(</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    $("#confirmRsvp").on('click', function( event ) {
+        process(true);
+        event.preventDefault();
+    });
+    $("#declineRsvp").on('click', function( event ) {
+        process(false);
+        event.preventDefault();
+    });
+    function process(status){
+        var firstName = $("#firstName").val();
+        var lastName = $("#lastName").val();
+        var extras = $("#extras").val();
+        if (extras == ""){
+            extras = 0;
+        }
+        var coming = status;
+
+        var message;
+        if (status == true){
+            message = firstName + " " + lastName + " will be attending with " + extras + " guest(s).";
+        }
+        else{
+            message = firstName + " " + lastName + " can't make it.";
+        }
+
+        var count = localStorage.getItem("count");
+        count++;
+        localStorage.setItem("count", count);
+        localStorage.setItem("message" + count.toString(), message);
+    }
+</script>
