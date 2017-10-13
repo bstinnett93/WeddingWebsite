@@ -1,0 +1,74 @@
+﻿@{
+    Layout = "~/_SiteLayout.cshtml";
+}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+<link rel="stylesheet" href="/Content/animatedButtons.css">
+<link rel="stylesheet" href="/Content/style.css">
+
+<div class="details">
+    <h2>Our Registries</h2>
+
+    <div class="container text-center" style="margin-top: 2%">
+        <div class="row">
+            <div class="col cruise" style="margin-left: -3%; padding-right: 3%" onclick="openInNewTab('https://disney.honeymoonwishes.com/Honeymoon-Registry-354343-Disney-Cruise-Line-Bro');">
+                <img src="/Images/cruise.png" style="width:80%; margin-top: -2%" alt="...">
+                <div style="padding-top: 8%">
+                    <p>We want our honeymoon to be magical.</p>
+                    <p>Help us make that happen!</p>
+                    <p>You can buy us anything from a drink,<br>to an Italian dinner, to a couples spa!</p>
+                </div>
+            </div>
+            <div class="verticalLine"></div>
+            <div class="col ikea" style="margin-right: -3%; padding-left: 3%" onclick="openInNewTab('https://info.ikea-usa.com/giftregistry/en-us/registry/2c4d2251-3e4e-40f4-9d43-564e62711b17');">
+                <img src="/Images/ikea.png" style="width:80%;" alt="...">
+                <div style="padding-top: 11%">
+                    <p>We love IKEA!</p>
+                    <p>Help us make our home a Swedish haven!</p>
+                    <p>(will also accept Swedish meatballs)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openInNewTab(url) {
+        var win = window.open(url, '_blank');
+        win.focus();
+    }
+
+    $('.cruise').mouseover(function(){
+        raiseCruise();
+        lowerIkea();
+    });
+
+    $('.ikea').mouseover(function(){
+        raiseIkea();
+        lowerCruise();
+    });
+
+    $('.col').mouseout(function(){
+        revert();
+    });
+
+    function raiseCruise(){
+        $('.cruise').css({"cursor": "pointer","opacity": "1"});
+    }
+
+    function raiseIkea(){
+        $('.ikea').css({"cursor": "pointer", "opacity": "1"});
+    }
+
+    function  lowerCruise(){
+        $('.cruise').css({"cursor": "default", "opacity": ".5"});
+    }
+
+    function  lowerIkea(){
+        $('.ikea').css({"cursor": "default", "opacity": ".5"});
+    }
+
+    function revert(){
+        $('.cruise').css({"cursor": "default", "opacity": "1"});
+        $('.ikea').css({"cursor": "default", "opacity": "1"});
+    }
+</script>

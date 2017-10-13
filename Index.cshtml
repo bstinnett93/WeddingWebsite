@@ -1,0 +1,108 @@
+﻿@{
+    Layout = "~/_SiteLayout.cshtml";
+    Page.Title = "Our Wedding";
+}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+<link rel="stylesheet" href="/Content/animatedButtons.css">
+<link rel="stylesheet" href="/Content/style.css">
+
+<div class="main">
+    <div class="heartContainer">
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 100 100">
+            <path fill-opacity="0" stroke-width="1" stroke="#bbb" d="M81.495,13.923c-11.368-5.261-26.234-0.311-31.489,11.032C44.74,13.612,29.879,8.657,18.511,13.923  C6.402,19.539,0.613,33.883,10.175,50.804c6.792,12.04,18.826,21.111,39.831,37.379c20.993-16.268,33.033-25.344,39.819-37.379  C99.387,33.883,93.598,19.539,81.495,13.923z" />
+            <path id="heart-path" fill-opacity="0" stroke-width="3" stroke="#ED6A5A" d="M81.495,13.923c-11.368-5.261-26.234-0.311-31.489,11.032C44.74,13.612,29.879,8.657,18.511,13.923  C6.402,19.539,0.613,33.883,10.175,50.804c6.792,12.04,18.826,21.111,39.831,37.379c20.993-16.268,33.033-25.344,39.819-37.379  C99.387,33.883,93.598,19.539,81.495,13.923z" />
+        </svg>
+        <p><span class="countdown"></span> days</p>
+    </div>
+
+    <div>
+        <img src="/Images/names.png" style="width:95%; margin-top: -1%" alt="...">
+    </div>
+
+    <div class="header text-center" id="header">
+        <nav class="navbar navbar-expand-lg" style="background-color: #ffdee5">
+            <span class="navbar-brand">
+                <img src="/Images/wedding_couple.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            </span>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item col-sm-5">
+                        <a class="nav-link selected" id="goToHome" href="#">Home</a>
+                    </li>
+                    <li class="nav-item col-sm-5">
+                        <a class="nav-link" id="goToDetails" href="#">Details</a>
+                    </li>
+                    <li class="nav-item col-sm-5">
+                        <a class="nav-link" id="goToRegistry" href="#">Registry</a>
+                    </li>
+                    <li class="nav-item col-sm-5">
+                        <a class="nav-link" id="goToPhotos" href="#">Photos</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div id="content">
+        </div>
+    </div>
+    
+    <div class="info text-center container">
+        <div class="row">
+            <div class="col" style="font-size: 15px">
+                <br>
+                February 25, 2018<br>
+                <span style="font-size:20px;">&#9901;</span><br>
+                New Port Richey, FL
+            </div>
+
+            <div class="col">
+                <a href="#" id="goToRsvp" class="btn btn-sm animated-button victoria-one rsvp" style="color: #e9ce74; font-size: 18px" role="button" aria-pressed="true">R S V P</a>
+            </div>
+
+            <div class="col" style="margin-top: 4px; padding-top: 10px">
+                <br>
+                Formal invitations coming!
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var height = 0;
+    $(function (){
+        height = window.innerHeight - (window.innerHeight*.45) + "px";
+        //$("#goToHome").click();
+        $(".countdown").html(GetDaysTillWedding());
+        SetHeartCountdown();
+    });
+    $("#goToHome").on("click", function(){
+        document.getElementById("content").innerHTML='<iframe src="Home.cshtml" style="width:100%; height:'+height+'; overflow: hidden; border:none;" scrolling="no" seamless="seamless"></iframe>';
+    });
+    $("#goToDetails").on("click", function(){
+        document.getElementById("content").innerHTML='<iframe src="Details.cshtml" style="width:100%; height:'+height+'; overflow: hidden; border:none;" scrolling="no" seamless="seamless"></iframe>';
+    });
+    $("#goToRegistry").on("click", function(){
+        document.getElementById("content").innerHTML='<iframe src="Registry.cshtml" style="width:100%; height:'+height+'; overflow: hidden; border:none;" scrolling="no" seamless="seamless"></iframe>';
+    });
+    $("#goToPhotos").on("click", function(){
+        document.getElementById("content").innerHTML='<iframe src="Photos.cshtml" style="width:100%; height:'+height+'; overflow: hidden; border:none;" scrolling="no" seamless="seamless"></iframe>';
+    });
+    $("#goToRsvp").on("click", function(){
+        document.getElementById("content").innerHTML='<iframe src="Rsvp.cshtml" style="width:100%; height:'+height+'; overflow: hidden; border:none;" scrolling="no" seamless="seamless"></iframe>';
+    });
+
+    $("ul.navbar-nav li a").click(function(e){
+        e.preventDefault();
+        e.stopPropagation;
+        $(this).closest('ul').find('.selected').removeClass('selected');
+        $(this).parent().addClass('selected');
+        $("#goToRsvp").removeClass('selectedRsvp');
+    });
+    $("#goToRsvp").click(function(e){
+        e.preventDefault();
+        e.stopPropagation;
+        $(".main").find('.selected').removeClass('selected');
+        $(this).addClass('selectedRsvp');
+    });
+</script>
